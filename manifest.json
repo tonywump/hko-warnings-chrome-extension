@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Weather Warning Icon Extension",
+  "version": "1.0",
+  "description": "Displays semi-transparent weather warning icons from HKO API at the bottom-left of the page.",
+  "permissions": [
+      "activeTab",
+      "scripting",
+      "storage"
+  ],
+  "background": {
+      "service_worker": "background.js"
+  },
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "css": ["styles.css"],
+          "js": ["content.js"]
+      }
+  ],
+  "host_permissions": [
+      "https://www.hko.gov.hk/*"
+  ]
+}

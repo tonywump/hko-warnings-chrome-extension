@@ -1,0 +1,22 @@
+#icon-extension-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: row; /* Changed to row to match content.js flex display */
+  gap: 5px;
+  z-index: 1000;
+}
+
+.weather-warning {
+  height: 50px;
+  width: 50px;
+  margin-right: 5px;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.weather-warning:hover {
+  opacity: 1;
+}
