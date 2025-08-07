@@ -27,8 +27,7 @@ function updateOverlay(warnings) {
     if (!warnings) {
         chrome.runtime.sendMessage({ action: 'fetchData' }, (response) => {
             if (response.error) {
-                console.error('Error fetching data:', response.error);
-                overlay.innerHTML = '<span style="color: red;">Failed to load warnings</span>';
+                overlay.innerHTML = '<span style="color: red;">No warnings</span>';
                 return;
             }
             renderWarnings(response.data);
@@ -39,6 +38,9 @@ function updateOverlay(warnings) {
 }
 
 function renderWarnings(warnings) {
+    
+    if(!warnings) return;
+
     warnings.forEach((warning) => {
         const img = document.createElement('img');
         img.src = warning.Icon;
@@ -47,4 +49,5 @@ function renderWarnings(warnings) {
         img.title = warning.WarningName;
         overlay.appendChild(img);
     });
+
 }

@@ -37,6 +37,9 @@ function updateOverlay() {
         .then(data => {
             const warnings = [];
             const seenNames = new Set();
+            
+            if(!data || !'details' in data) return [];
+
             data['details'].forEach(item => {
                 const warningCode = item.subtype??item.warningStatementCode;
                 if (!seenNames.has(warningCode)) {
